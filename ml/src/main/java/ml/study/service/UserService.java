@@ -17,9 +17,14 @@ public class UserService {
     private UserMapper userMapper;
 
     @Transactional(readOnly = true)
-    public User queryUserById(Long id) {
+    public User queryUserById(Integer id) {
         User user = new User();
         user.setId(id);
         return userMapper.selectOne(user);
+    }
+
+    @Transactional()
+    public void save(User user) {
+        userMapper.insert(user);
     }
 }
