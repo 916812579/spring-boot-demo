@@ -1,6 +1,10 @@
 package ml.study.service;
 
+import ml.study.mapper.UserMapper;
+import ml.study.model.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author hemingliang-1291
@@ -9,4 +13,13 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+    @Autowired
+    private UserMapper userMapper;
+
+    @Transactional(readOnly = true)
+    public User queryUserById(Long id) {
+        User user = new User();
+        user.setId(id);
+        return userMapper.selectOne(user);
+    }
 }
