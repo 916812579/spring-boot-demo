@@ -1,11 +1,13 @@
 package ml.study.model;
 
 import lombok.Data;
+import lombok.val;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.ArrayList;
 
 /**
  * @author hemingliang-1291
